@@ -1,4 +1,4 @@
-FROM arm32v6/ubuntu:20.04 as build
+FROM arm32v7/ubuntu as build
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y curl bash
@@ -33,7 +33,7 @@ WORKDIR /double-take
 RUN npm install nodemon -g
 COPY /.build/entrypoint.sh .
 
-FROM arm32v6/ubuntu:20.04
+FROM arm32v7/ubuntu
 COPY --from=build . .
 ENV NODE_ENV=production
 WORKDIR /double-take
