@@ -33,7 +33,7 @@ WORKDIR /double-take
 RUN npm install nodemon -g
 COPY /.build/entrypoint.sh .
 
-FROM ubuntu:20.04
+FROM arm32v6/ubuntu:20.04
 COPY --from=build . .
 ENV NODE_ENV=production
 WORKDIR /double-take
